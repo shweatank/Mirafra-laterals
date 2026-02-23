@@ -15,7 +15,7 @@ static int major_number;
 
 /* Structure to cpoy*/
 struct data{
-    int ops;
+    int op;
     int a;
     int b;
     int result;
@@ -25,7 +25,7 @@ static struct data kdata;
 
 /* ----------- Function Pointer Section ----------- */
 
-typedef (*operatins)(int,int);
+typedef int (*operations)(int,int);
 
 static int add(int a, int b)
 {
@@ -50,7 +50,7 @@ static int divide(int a, int b)
 }
 
 /* Function pointer table */
-static operatins op_table[] = {add,sub,mul,divide};
+static operations op_table[] = {add,sub,mul,divide};
 
 /* ----------- File Operations ----------- */
 
