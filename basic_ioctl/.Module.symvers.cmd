@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra_Practice/basic_ioctl/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Mirafra_Practice/basic_ioctl/Module.symvers -T /home/mirafra/Mirafra_Practice/basic_ioctl/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.mod := printf '%s\n'   basic_ioctl.o | awk '!x[$$0]++ { print("/home/mirafra/Mirafra_Practice/basic_ioctl/"$$0) }' > /home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.mod

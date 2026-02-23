@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.ko /home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.o /home/mirafra/Mirafra_Practice/basic_ioctl/basic_ioctl.mod.o
