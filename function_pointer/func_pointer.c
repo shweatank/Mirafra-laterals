@@ -4,7 +4,9 @@
 int main(){
     int arr[2] = {10, 0};
     int result;
-    char operation[16] = "DIV";
+    char operation[16];
+    printf("Give operation : \n");
+    scanf("%s",operation);
 
     FILE *fp = fopen("/dev/function_pointer_in_driver", "r+");
     if(fp == NULL) {
