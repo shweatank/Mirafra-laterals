@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/calc_key_thread/modules.order := {   echo /home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.o; :; } > /home/dell/ldd/Mirafra-laterals/calc_key_thread/modules.order

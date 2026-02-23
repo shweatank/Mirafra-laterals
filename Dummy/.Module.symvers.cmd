@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/Dummy/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/dell/ldd/Mirafra-laterals/Dummy/Module.symvers -T /home/dell/ldd/Mirafra-laterals/Dummy/modules.order -i Module.symvers -e 

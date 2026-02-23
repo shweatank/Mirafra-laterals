@@ -1,0 +1,139 @@
+#include <linux/module.h>
+#include <linux/input.h>
+#include <linux/timer.h>
+
+static struct timer_list calc_timer;
+static int operation;
+
+/* ---------- TIMER ---------- */
+static void timer_fn(struct timer_list *t)
+{
+    	int a = 20, b = 5;
+
+    	switch (operation)
+    	{
+        	case 1:
+			printk("ADD = %d\n", a + b);
+			break;
+		case 2:
+			printk("SUB = %d\n", a - b);
+			break;
+		case 3:
+	    		printk("MUL = %d\n", a * b);
+			break;
+		case 4:
+			printk("DIV = %d\n", a / b);
+			break;
+	}
+}
+
+/* ---------- KEY EVENT ---------- */
+static void kbd_event(struct input_handle *handle,
+                      unsigned int type,
+                      unsigned int code,
+                      int value)
+{
+    /* key press only */
+
+	if (type != EV_KEY || value != 1)
+		return;
+
+	switch (code)
+	{
+		case KEY_A:
+			operation = 1;
+			printk("A pressed\n");
+			break;
+		
+		case KEY_S:
+			operation = 2;
+			printk("S pressed\n");
+			break;
+		
+		case KEY_M:
+			operation = 3;
+			printk("M pressed\n");
+			break;
+		
+		case KEY_D:
+			operation = 4;
+			printk("D pressed\n");
+			break;
+		
+		default:
+			return;
+	}
+
+    /* start timer after 1 second */
+	mod_timer(&calc_timer,jiffies + msecs_to_jiffies(1000));
+}
+
+/* ---------- STATIC HANDLE ---------- */
+static struct input_handle handle;
+
+/* ---------- CONNECT ---------- */
+static int kbd_connect(struct input_handler *handler,
+                       struct input_dev *dev,
+                       const struct input_device_id *id)
+{
+	handle.dev = dev;
+	handle.handler = handler;
+	handle.name = "simple_kbd";
+	
+	input_register_handle(&handle);
+	input_open_device(&handle);
+	
+	printk("Keyboard connected\n");
+	return 0;
+}
+
+/* ---------- DISCONNECT ---------- */
+static void kbd_disconnect(struct input_handle *handle)
+{
+	input_close_device(handle);
+	input_unregister_handle(handle);
+}
+
+/* ---------- MATCH KEYBOARD ---------- */
+static const struct input_device_id ids[] = {
+	{
+		.flags = INPUT_DEVICE_ID_MATCH_EVBIT,
+		.evbit = { BIT_MASK(EV_KEY) },
+	},
+	{ },
+};
+
+MODULE_DEVICE_TABLE(input, ids);
+
+/* ---------- HANDLER ---------- */
+static struct input_handler kbd_handler = {
+	.event = kbd_event,
+	.connect = kbd_connect,
+	.disconnect = kbd_disconnect,
+	.name = "simple_calc",
+	.id_table = ids,
+};
+
+/* ---------- INIT ---------- */
+static int __init calc_init(void)
+{
+	printk("Simple Keyboard Calculator Loaded\n");
+	
+	timer_setup(&calc_timer, timer_fn, 0);
+	return input_register_handler(&kbd_handler);
+}
+
+/* ---------- EXIT ---------- */
+static void __exit calc_exit(void)
+{
+	del_timer_sync(&calc_timer);
+	input_unregister_handler(&kbd_handler);
+	
+	printk("Driver Removed\n");
+}
+
+module_init(calc_init);
+module_exit(calc_exit);
+
+MODULE_LICENSE("GPL");
+

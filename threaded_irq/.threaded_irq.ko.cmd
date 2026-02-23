@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/threaded_irq/threaded_irq.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/threaded_irq/threaded_irq.ko /home/dell/ldd/Mirafra-laterals/threaded_irq/threaded_irq.o /home/dell/ldd/Mirafra-laterals/threaded_irq/threaded_irq.mod.o

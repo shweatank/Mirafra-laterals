@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.ko /home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.o /home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.mod.o
