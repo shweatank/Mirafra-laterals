@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/ioctl_cal/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/dell/ldd/Mirafra-laterals/ioctl_cal/Module.symvers -T /home/dell/ldd/Mirafra-laterals/ioctl_cal/modules.order -i Module.symvers -e 

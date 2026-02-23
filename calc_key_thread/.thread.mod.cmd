@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.mod := printf '%s\n'   thread.o | awk '!x[$$0]++ { print("/home/dell/ldd/Mirafra-laterals/calc_key_thread/"$$0) }' > /home/dell/ldd/Mirafra-laterals/calc_key_thread/thread.mod

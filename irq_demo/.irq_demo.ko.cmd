@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/irq_demo/irq_demo.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/irq_demo/irq_demo.ko /home/dell/ldd/Mirafra-laterals/irq_demo/irq_demo.o /home/dell/ldd/Mirafra-laterals/irq_demo/irq_demo.mod.o

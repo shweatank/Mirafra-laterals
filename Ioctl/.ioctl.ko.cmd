@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/Ioctl/ioctl.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/Ioctl/ioctl.ko /home/dell/ldd/Mirafra-laterals/Ioctl/ioctl.o /home/dell/ldd/Mirafra-laterals/Ioctl/ioctl.mod.o

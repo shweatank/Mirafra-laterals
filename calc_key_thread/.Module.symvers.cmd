@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/calc_key_thread/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/dell/ldd/Mirafra-laterals/calc_key_thread/Module.symvers -T /home/dell/ldd/Mirafra-laterals/calc_key_thread/modules.order -i Module.symvers -e 

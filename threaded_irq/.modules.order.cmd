@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/threaded_irq/modules.order := {   echo /home/dell/ldd/Mirafra-laterals/threaded_irq/threaded_irq.o; :; } > /home/dell/ldd/Mirafra-laterals/threaded_irq/modules.order

@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/Dummy/dummy.mod := printf '%s\n'   dummy.o | awk '!x[$$0]++ { print("/home/dell/ldd/Mirafra-laterals/Dummy/"$$0) }' > /home/dell/ldd/Mirafra-laterals/Dummy/dummy.mod
