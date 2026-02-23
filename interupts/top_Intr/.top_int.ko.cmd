@@ -1,0 +1,1 @@
+savedcmd_top_int.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.17.0-14-generic/scripts/module.lds -o top_int.ko top_int.o top_int.mod.o .module-common.o
