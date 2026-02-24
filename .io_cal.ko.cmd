@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra-laterals/io_cal.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Mirafra-laterals/io_cal.ko /home/mirafra/Mirafra-laterals/io_cal.o /home/mirafra/Mirafra-laterals/io_cal.mod.o

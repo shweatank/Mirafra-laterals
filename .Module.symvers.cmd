@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra-laterals/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Mirafra-laterals/Module.symvers -T /home/mirafra/Mirafra-laterals/modules.order -i Module.symvers -e 
