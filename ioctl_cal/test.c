@@ -24,7 +24,7 @@ int main()
 	int fd;
 	struct calc_req cal = {.num1 = 10, .num2 = 5};
 	
-	fd = open("/dev/ioctl", O_RDWR);
+	fd = open("/dev/calc", O_RDWR);
 	if(fd < 0)
 	{
 		perror("open");

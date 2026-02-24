@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/waitq/waitq.mod := printf '%s\n'   waitq.o | awk '!x[$$0]++ { print("/home/dell/ldd/Mirafra-laterals/waitq/"$$0) }' > /home/dell/ldd/Mirafra-laterals/waitq/waitq.mod

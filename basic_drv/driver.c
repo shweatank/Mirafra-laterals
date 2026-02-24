@@ -8,6 +8,9 @@ MODULE_AUTHOR("MIRAFRA");
 
 static int __init mod_init(void)
 {
+	int num1 = 5, num2 = 0;
+	int res = num1 / num2;
+	printk(KERN_INFO"result = %d\n", res);
 	printk(KERN_INFO"Module loaded\n");
 	return 0;
 }

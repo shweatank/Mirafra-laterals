@@ -27,6 +27,7 @@ struct calc_req
 #define CALC_IOC_MOD	_IOWR(CALC_IOC_MAGIC, 5, struct calc_req)
 
 static dev_t g_dev;
+static struct cdev g_cdev;
 static struct class *g_class;
 static struct device *g_device;
 
@@ -167,10 +168,10 @@ static int __init calc_init(void)
 		return ret;
 	}
 
-	cdev_init(&g_dev, &fops);
+	cdev_init(&g_cdev, &fops);
 	//g_dev.owner = THIS_MODULE;
 
-	ret = cdev_add(&g_device, g_dev, 1);
+	ret = cdev_add(&g_cdev, g_dev, 1);
 
 	if(ret)
 	{
@@ -197,6 +198,8 @@ static int __init calc_init(void)
 
 	pr_info(DRV_NAME ": loaded, /dev/%s major = %d minor = %d\n", DEV_NAME, MAJOR(g_dev), MINOR(g_dev));
 
+	return 0;
+
 class:
 	class_destroy(g_class);
 device:
@@ -208,6 +211,7 @@ unregister:
 
 static void __exit calc_exit(void)
 {
+	device_destroy(g_class, g_dev);
 	class_destroy(g_class);
 	cdev_del(&g_cdev);
 	unregister_chrdev_region(g_dev, 1);

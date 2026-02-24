@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.mod := printf '%s\n'   demo.o | awk '!x[$$0]++ { print("/home/dell/ldd/Mirafra-laterals/dynamic_memory/"$$0) }' > /home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.mod

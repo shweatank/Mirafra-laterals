@@ -15,10 +15,10 @@ struct number
 {
 	int num1;
 	int num2;
+	long result;
 };
 
-static int result;
-
+static struct number nums;
 
 static int __init dum_init(void);
 static void __exit dum_exit(void);
@@ -46,7 +46,7 @@ static ssize_t dum_read(struct file *file, char __user *buf, size_t count, loff_
 
 	bytes_to_copy = min(count, (size_t) (buf_size - *offset));
 
-	if(copy_to_user(buf, &result, sizeof(int)))
+	if(copy_to_user(buf, &nums, sizeof(struct number)))
 	{
 		return -EFAULT;
 	}
@@ -61,16 +61,15 @@ static ssize_t dum_read(struct file *file, char __user *buf, size_t count, loff_
 static ssize_t dum_write(struct file *file, const char __user *buf, size_t count, loff_t *offset)
 {
 	int bytes_to_copy;
-	struct number nums;
 
 	bytes_to_copy = min(count, (size_t) SIZE);
 
-	if(copy_from_user(&nums, buf, count))
+	if(copy_from_user(&nums, buf, sizeof(struct number)))
 	{
 		return -EFAULT;
 	}
 	
-	result = nums.num1 + nums.num2;
+	nums.result = nums.num1 + nums.num2;
 
 	buf_size = bytes_to_copy;
 

@@ -1,0 +1,1 @@
+savedcmd_/home/dell/ldd/Mirafra-laterals/timer_irq/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/dell/ldd/Mirafra-laterals/timer_irq/Module.symvers -T /home/dell/ldd/Mirafra-laterals/timer_irq/modules.order -i Module.symvers -e 
