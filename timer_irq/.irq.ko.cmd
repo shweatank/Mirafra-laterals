@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/timer_irq/irq.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/timer_irq/irq.ko /home/dell/ldd/Mirafra-laterals/timer_irq/irq.o /home/dell/ldd/Mirafra-laterals/timer_irq/irq.mod.o

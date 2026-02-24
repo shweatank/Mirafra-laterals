@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/dynamic_memory/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/dell/ldd/Mirafra-laterals/dynamic_memory/Module.symvers -T /home/dell/ldd/Mirafra-laterals/dynamic_memory/modules.order -i Module.symvers -e 

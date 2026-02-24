@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.ko /home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.o /home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.mod.o

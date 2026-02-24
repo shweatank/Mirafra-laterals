@@ -1,1 +1,0 @@
-savedcmd_/home/dell/ldd/Mirafra-laterals/dynamic_memory/modules.order := {   echo /home/dell/ldd/Mirafra-laterals/dynamic_memory/demo.o; :; } > /home/dell/ldd/Mirafra-laterals/dynamic_memory/modules.order
