@@ -7,6 +7,7 @@
 
 
 #define DEVICE_NAME "basic_ioctl"
+
 #define IOCTL_MAGIC 'B'
 #define IOCTL_SET_VALUE _IOWR(IOCTL_MAGIC,1,int)
 

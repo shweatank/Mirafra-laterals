@@ -45,9 +45,7 @@ static long basic_ioctl(struct file *file,
     if (_IOC_TYPE(cmd) != CALC_IOC_MAGIC)
         return -EINVAL;
 
-    if (copy_from_user(&cal,
-        (struct calc_req __user *)arg,
-        sizeof(cal)))
+    if (copy_from_user(&cal,(struct calc_req __user *)arg,sizeof(cal)))
         return -EFAULT;
 
     cal.err = 0;
