@@ -13,8 +13,9 @@ static int irq_counter = 0;
 
 static irqreturn_t irq_demo_isr(int irq, void* dev_id){
     irq_counter++;
-
+    /* Should not use pr_info here as this is a top half approach or hard IRQ*/
     pr_info("%s :interrupt recieved : IRQ %d Count %d \n", DRIVER_NAME, irq, irq_counter);
+    
     /*IRQ_HANDLED means:
         this interrupt was meant for us
     */
