@@ -1,0 +1,1 @@
+/home/mirafra/LDD_GITPUSSH/Mirafra-laterals/dts_file_example/file2.txt
