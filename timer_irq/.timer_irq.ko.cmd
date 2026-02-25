@@ -1,1 +1,0 @@
-savedcmd_/home/mirafra/Mirafra_Practice/timer_irq/timer_irq.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Mirafra_Practice/timer_irq/timer_irq.ko /home/mirafra/Mirafra_Practice/timer_irq/timer_irq.o /home/mirafra/Mirafra_Practice/timer_irq/timer_irq.mod.o
