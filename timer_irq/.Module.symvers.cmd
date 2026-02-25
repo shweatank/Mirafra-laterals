@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra_Practice/timer_irq/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Mirafra_Practice/timer_irq/Module.symvers -T /home/mirafra/Mirafra_Practice/timer_irq/modules.order -i Module.symvers -e 
