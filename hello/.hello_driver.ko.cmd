@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/linux/hello/hello_driver.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/linux/hello/hello_driver.ko /home/mirafra/linux/hello/hello_driver.o /home/mirafra/linux/hello/hello_driver.mod.o

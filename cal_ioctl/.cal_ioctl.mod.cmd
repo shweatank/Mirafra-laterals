@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.mod := printf '%s\n'   cal_ioctl.o | awk '!x[$$0]++ { print("/home/mirafra/SHARANG/linux/cal_ioctl/"$$0) }' > /home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.mod

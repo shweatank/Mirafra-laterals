@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/cal_ioctl/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/SHARANG/linux/cal_ioctl/Module.symvers -T /home/mirafra/SHARANG/linux/cal_ioctl/modules.order -i Module.symvers -e 

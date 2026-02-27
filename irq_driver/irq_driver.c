@@ -1,32 +1,32 @@
-#include <linux/kernel.h>
-#include <linux/init.h>
 #include <linux/module.h>
-#include <linux/interrupt.h> /*for interrupts*/
+#include <linux/kernel.h>
+#include <linux/init. h>
+#include <linux/interrupt.h>
 
 #define DRIVER_NAME "irq_driver"
-#define IRQ_NUM     1
+#define IRQ_NUM	    1 //ex:- keyboard IRQ on x86
+	
+static int irq_counter =0;
 
-static int irq_counter = 0;
+/* Interrupt Service Routinr(ISR)
+ */
 
-/*ISR*/
-/*This runs in interrupt context (top half)*/
+static irqreturn_t irq_demo_isr(int irq, void *dev_id)
+{
+	irq_counter++;
+	pr_info("%s: Interrupt received ! IRQ=%d count=%d\n",DRIVER_NAME, irq, irq_counter);
+	/* IRQ_HANDLED means: 
+	   This interrupt was meant for us*/
 
-static irqreturn_t irq_demo_isr(int irq, void* dev_id){
-    irq_counter++;
-    /* Should not use pr_info here as this is a top half approach or hard IRQ*/
-    pr_info("%s :interrupt recieved : IRQ %d Count %d \n", DRIVER_NAME, irq, irq_counter);
-    
-    /*IRQ_HANDLED means:
-        this interrupt was meant for us
-    */
-   return IRQ_HANDLED;
+	return IRQ_HANDLED;
 }
 
-static int __init irq_demo_init(void){
-    int ret;
-    
-    pr_info("%s : Initalizing \n", DRIVER_NAME);
-    /*
+static int __init irq_demo_init(void)
+{
+	int ret;
+
+	pr_info("%s: initializing\n",DRIVER_NAME);
+	/*
     request_irq arguments :
     irq         -> IRQ number
     handler     -> ISR function
@@ -35,33 +35,27 @@ static int __init irq_demo_init(void){
     dev_id      -> unique identifier (must match free irq)
     */
 
-    ret = request_irq(IRQ_NUM,  irq_demo_isr, IRQF_SHARED, DRIVER_NAME, (void *)irq_demo_isr);
+	ret =request_irq (IRQ_NUM, irq_demo_isr,IRQF_SHARED,DRIVER_NAME,(void*)irq_demo_isr);
 
-    if(ret){
-        pr_err("%s : failed to request irq %d\n", DRIVER_NAME, IRQ_NUM);
-    }
+	if(ret){
+		pr_err("%s: Failed to request IRQ %d\n", DRIVER_NAME,IRQ_NUM);
+		return ret;
+	}
 
-    return 0;
+	pr_info("%s: IRQ %d registered successful\n",DRVIER_NAME, IRQ_NUM);
+	return 0;
 }
+static void __exit irq_demo_exit(void)
+{
+	pr_info("%s : Cleanning up\n",DRIVER_NAME);
 
+	free_irq(IRQ_NUM,(void *)irq_demo_isr);
 
-static void __exit irq_demo_exit(void){
-    pr_info("%s : Cleaning up\n", DRIVER_NAME);
-
-    /*
-    free_irq must match:
-    - same IRQ number
-    - same dev_id pointer
-    */
-    free_irq(IRQ_NUM, (void *)irq_demo_isr);
-
-    pr_info("%s : IRQ freed \n", DRIVER_NAME);
+	pr_info("%s: IRQ freed\n",DRIVER_NAME);
 }
-
 module_init(irq_demo_init);
 module_exit(irq_demo_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Adepu Shashank");
-MODULE_DESCRIPTION("IRQ handling  module");
-
+MODULE_AUTHOR("SHARANG");
+MODULE_DESCRIPTION("Simple Linux kernel IRQ handling Example");

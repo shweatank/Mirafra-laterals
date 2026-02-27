@@ -52,5 +52,5 @@ module_init(tasklet_irq_init);
 module_exit(tasklet_irq_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Adepu Shashank");
+MODULE_AUTHOR("SHARANG");
 MODULE_DESCRIPTION("Tasklet demo code ");

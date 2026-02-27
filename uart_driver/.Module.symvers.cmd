@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/uart_driver/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/SHARANG/linux/uart_driver/Module.symvers -T /home/mirafra/SHARANG/linux/uart_driver/modules.order -i Module.symvers -e 

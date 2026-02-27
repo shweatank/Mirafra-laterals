@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/char_driver/char_driver.mod := printf '%s\n'   char_driver.o | awk '!x[$$0]++ { print("/home/mirafra/SHARANG/linux/char_driver/"$$0) }' > /home/mirafra/SHARANG/linux/char_driver/char_driver.mod

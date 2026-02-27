@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/gpio_driver/gpio_driver1.mod := printf '%s\n'   gpio_driver1.o | awk '!x[$$0]++ { print("/home/mirafra/SHARANG/linux/gpio_driver/"$$0) }' > /home/mirafra/SHARANG/linux/gpio_driver/gpio_driver1.mod

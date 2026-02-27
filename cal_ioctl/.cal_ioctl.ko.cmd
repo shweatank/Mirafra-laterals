@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.ko /home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.o /home/mirafra/SHARANG/linux/cal_ioctl/cal_ioctl.mod.o

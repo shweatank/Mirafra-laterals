@@ -1,4 +1,4 @@
-obj-m += basic_ioctl.o
+obj-m += cal_ioctl.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules

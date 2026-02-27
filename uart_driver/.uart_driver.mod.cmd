@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/uart_driver/uart_driver.mod := printf '%s\n'   uart_driver.o | awk '!x[$$0]++ { print("/home/mirafra/SHARANG/linux/uart_driver/"$$0) }' > /home/mirafra/SHARANG/linux/uart_driver/uart_driver.mod

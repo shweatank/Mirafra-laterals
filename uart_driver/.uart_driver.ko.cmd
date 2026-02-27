@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/uart_driver/uart_driver.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/SHARANG/linux/uart_driver/uart_driver.ko /home/mirafra/SHARANG/linux/uart_driver/uart_driver.o /home/mirafra/SHARANG/linux/uart_driver/uart_driver.mod.o
