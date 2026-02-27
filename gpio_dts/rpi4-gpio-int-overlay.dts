@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            gpio_int_device: gpio_int_device {
+                compatible = "techdhaba,gpio-int";
+                gpios = <&gpio 17 0>;   // GPIO17, active high
+                status = "okay";
+            };
+        };
+    };
+};

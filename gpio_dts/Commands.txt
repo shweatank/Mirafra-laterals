@@ -1,0 +1,11 @@
+1.To compile dts:
+dtc -@ -I dts -O dtb -o rpi4-gpio-int.dtbo rpi4-gpio-int-overlay.dts
+2.To copy dts to boot overlays
+sudo cp rpi4-gpio-int.dtbo /boot/overlays/
+3.To add to config file
+vim /boot/firmware/config.txt
+then add this line : dtoverlay=rpi4-gpio-int
+4.Reboot
+5.Insert the driver module
+6.Check for interrupts in demsg while shorting GPIO17(11) with 3.3V pin(1)
+
