@@ -1,1 +1,0 @@
-cmd_/home/mirafra/Mirafra_Practice/Cross_compilation_rpi/Module.symvers := sed 's/ko$$/o/' /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/modules.order | scripts/mod/modpost -m -a   -o /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/Module.symvers -e    -T -
