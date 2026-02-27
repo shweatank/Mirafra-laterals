@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+&{/} {
+
+    mydev {
+        compatible = "karthik,gpio-uart-irq";
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&my_pins>;
+
+        out-gpio = <&gpio 17 0>;
+        irq-gpio = <&gpio 27 0>;
+
+        status = "okay";
+    };
+};
+
+&pinctrl {
+    my_pins: my_pins {
+        brcm,pins = <17 27>;
+        brcm,function = <1 0>;   /* 17 output, 27 input */
+        brcm,pull = <0 0>;
+    };
+};
