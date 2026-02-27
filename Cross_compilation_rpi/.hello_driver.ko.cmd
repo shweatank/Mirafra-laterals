@@ -1,0 +1,1 @@
+cmd_/home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.ko := aarch64-linux-gnu-ld -r -EL  -maarch64elf --build-id=sha1  -T scripts/module.lds -o /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.ko /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.o /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.mod.o;  true

@@ -4,8 +4,6 @@
 
 static int __init hello_module_init(void)
 {
-    int y = 99 / 0;
-    pr_info("%d\b",y);
     pr_info("Hello World from Module - Insertion successful\n");
     return 0;
 }

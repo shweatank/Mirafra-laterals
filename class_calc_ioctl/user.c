@@ -40,7 +40,7 @@ int main(void)
 {
     int fd;
 
-    fd = open("/dev/calc_ioctl", O_RDWR);
+    fd = open("/dev/calc_ioctl_class", O_RDWR);
     if (fd < 0) {
         perror("open");
         return 1;

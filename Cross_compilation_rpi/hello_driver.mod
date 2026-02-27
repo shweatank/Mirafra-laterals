@@ -1,0 +1,2 @@
+/home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.o
+

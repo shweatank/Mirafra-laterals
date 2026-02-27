@@ -1,0 +1,1 @@
+cmd_/home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.mod := { echo  /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.o;  echo; } > /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.mod

@@ -1,0 +1,1 @@
+cmd_/home/mirafra/Mirafra_Practice/Cross_compilation_rpi/modules.order := {   echo /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/hello_driver.ko; :; } | awk '!x[$$0]++' - > /home/mirafra/Mirafra_Practice/Cross_compilation_rpi/modules.order

@@ -12,11 +12,9 @@
 #define CLASS_NAME "calc_class"  
 
 struct calc_req {
-    int a;
-    int b;
-    long result;
-    int err;
+    char name[50];
 };
+
 
 static dev_t g_dev;
 static struct cdev g_cdev;
@@ -24,10 +22,7 @@ static struct class  *g_class;
 static struct device *g_device;
 
 #define CALC_IOC_ADD _IOWR(CALC_IOC_MAGIC, 1, struct calc_req)
-#define CALC_IOC_SUB _IOWR(CALC_IOC_MAGIC, 2, struct calc_req)
-#define CALC_IOC_MUL _IOWR(CALC_IOC_MAGIC, 3, struct calc_req)
-#define CALC_IOC_DIV _IOWR(CALC_IOC_MAGIC, 4, struct calc_req)
-#define CALC_IOC_MOD _IOWR(CALC_IOC_MAGIC, 5, struct calc_req)
+
 
 static inline bool calc_ioctl_valid(unsigned int cmd){
     return _IOC_TYPE(cmd) == CALC_IOC_MAGIC;
@@ -92,6 +87,7 @@ static long calc_ioctl(struct file *file,
                         unsigned long arg)
 {
     struct calc_req user_req;
+    
 
 
     if(copy_from_user(&user_req, (struct calc_req __user *)arg, sizeof(struct calc_req))){ 
@@ -99,40 +95,7 @@ static long calc_ioctl(struct file *file,
 
     user_req.err = 0;
 
-    switch(cmd){
-        case CALC_IOC_ADD:
-            user_req.result = (long)user_req.a + user_req.b;
-            break;
-
-        case CALC_IOC_SUB:
-            user_req.result = (long)user_req.a - user_req.b;
-            break;
-
-        case CALC_IOC_MUL:
-            user_req.result = (long)user_req.a * user_req.b;
-            break;
-
-        case CALC_IOC_DIV:
-            if(user_req.b == 0){
-                user_req.err = -EINVAL;
-                user_req.result = 0;
-                break;
-            }
-            user_req.result = (long)user_req.a / user_req.b;
-            break;
-
-        case CALC_IOC_MOD:
-            if(user_req.b == 0){
-                user_req.err = -EINVAL;
-                user_req.result = 0;
-                break;
-            }
-            user_req.result = (long)user_req.a % user_req.b;
-            break;
-
-        default:
-            return -EINVAL;
-    }
+    
 
     pr_info("Calc result is %ld err no is %d\n", user_req.result, user_req.err); 
 
