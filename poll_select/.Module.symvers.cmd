@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/Mirafra_Practice/poll_select/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/Mirafra_Practice/poll_select/Module.symvers -T /home/mirafra/Mirafra_Practice/poll_select/modules.order -i Module.symvers -e 
