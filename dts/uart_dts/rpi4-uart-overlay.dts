@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target-path = "/soc/serial@7e201000";
+        _overlay_ {
+            status = "okay";
+
+            /* Optional: make sure it matches your driver */
+            compatible = "brcm,bcm2835-pl011";
+        };
+    };
+};
