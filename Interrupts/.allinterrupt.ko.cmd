@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/drivers/Interrupts/allinterrupt.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/drivers/Interrupts/allinterrupt.ko /home/mirafra/drivers/Interrupts/allinterrupt.o /home/mirafra/drivers/Interrupts/allinterrupt.mod.o

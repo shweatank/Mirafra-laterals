@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/drivers/ioctl/diskeycal.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/drivers/ioctl/diskeycal.ko /home/mirafra/drivers/ioctl/diskeycal.o /home/mirafra/drivers/ioctl/diskeycal.mod.o
