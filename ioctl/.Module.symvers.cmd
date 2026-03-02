@@ -1,1 +1,0 @@
-savedcmd_/home/mirafra/drivers/ioctl/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/drivers/ioctl/Module.symvers -T /home/mirafra/drivers/ioctl/modules.order -i Module.symvers -e 

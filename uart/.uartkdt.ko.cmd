@@ -1,0 +1,1 @@
+savedcmd_/home/team3/isshika/uart/uartkdt.ko := aarch64-linux-gnu-ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/team3/isshika/uart/uartkdt.ko /home/team3/isshika/uart/uartkdt.o /home/team3/isshika/uart/uartkdt.mod.o /home/team3/isshika/uart/.module-common.o

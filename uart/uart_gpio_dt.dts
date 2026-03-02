@@ -1,0 +1,42 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    /* Disable default uart0 */
+    fragment@0 {
+        target = <&uart0>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+
+    /* Define pin configuration */
+    fragment@1 {
+        target = <&gpio>;
+        __overlay__ {
+            isshika_uart_pins: isshika_uart_pins {
+                brcm,pins = <14 15>;
+                brcm,function = <4>;   /* ALT0 */
+                brcm,pull = <0>;
+            };
+        };
+    };
+
+    /* Add our UART node */
+    fragment@2 {
+        target-path = "/";
+        __overlay__ {
+            isshika_uart: isshika_uart@fe201000 {
+                compatible = "brcm,isshika-uart";
+                reg = <0x0 0xfe201000 0x90>;
+
+                pinctrl-names = "default";
+                pinctrl-0 = <&isshika_uart_pins>;
+
+                status = "okay";
+            };
+        };
+    };
+};

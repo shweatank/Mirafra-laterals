@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            isshika_gpio_int: isshika_gpio_int {
+                compatible = "isshika,gpio-int";
+                gpios = <&gpio 27 0>;   // GPIO17, active high
+                status = "okay";
+            };
+        };
+    };
+};

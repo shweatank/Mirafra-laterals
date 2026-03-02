@@ -1,0 +1,1 @@
+savedcmd_/home/team3/isshika/gpio/epoll_select.ko := aarch64-linux-gnu-ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/team3/isshika/gpio/epoll_select.ko /home/team3/isshika/gpio/epoll_select.o /home/team3/isshika/gpio/epoll_select.mod.o /home/team3/isshika/gpio/.module-common.o
