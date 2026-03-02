@@ -1,0 +1,11 @@
+practice/
+Cross_compilation_rpi/
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.o
+modules.order
+Module.symvers
+a.out
+.*.cmd
