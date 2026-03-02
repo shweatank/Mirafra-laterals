@@ -1,0 +1,11 @@
+# Build files
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+*.symvers
+modules.order
+Module.symvers
+a.out
