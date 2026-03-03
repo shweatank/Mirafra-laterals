@@ -1,0 +1,13 @@
+/dts-v1/;
+/plugin/;
+
+&{/} {
+
+    uart_demo@fe201400 {
+        compatible = "karthik,uart-demo";
+
+        reg = <0x0 0xfe201400 0x90>;
+
+        status = "okay";
+    };
+};
