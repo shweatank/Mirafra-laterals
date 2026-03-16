@@ -1,0 +1,1 @@
+savedcmd_/home/team3/rani/project/spi1.ko := aarch64-linux-gnu-ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/team3/rani/project/spi1.ko /home/team3/rani/project/spi1.o /home/team3/rani/project/spi1.mod.o /home/team3/rani/project/.module-common.o
