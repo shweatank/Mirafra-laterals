@@ -1,0 +1,93 @@
+# Test cases for String Operations Utility
+# Format: operation_number\ninput\nexpected_output
+# Used by run_tests.sh for automated testing
+
+# Test 1: Reverse simple string
+1
+hello
+hello
+reversed
+
+# Test 2: Reverse with spaces
+1
+hello world
+dlrow olleh
+reversed
+
+# Test 3: Reverse single character
+1
+a
+a
+reversed
+
+# Test 4: String to int - basic positive number
+2
+123
+123
+converted
+
+# Test 5: String to int - negative number
+2
+-456
+-456
+converted
+
+# Test 6: String to int - with leading spaces
+2
+  789
+789
+converted
+
+# Test 7: String to int - invalid format
+2
+12a34
+converted
+(should fail)
+
+# Test 8: String length - basic string
+3
+hello
+5
+length
+
+# Test 9: String length - empty after trimming
+3
+
+0
+length
+
+# Test 10: String length - long string
+3
+The quick brown fox jumps over the lazy dog
+44
+length
+
+# Test 11: Reverse words - simple two words
+4
+hello world
+world hello
+reversed
+
+# Test 12: Reverse words - three words with extra spaces
+4
+one   two   three
+three two one
+reversed
+
+# Test 13: Integer overflow - large positive
+2
+2147483647
+2147483647
+converted
+
+# Test 14: Integer overflow - attempt overflow
+2
+2147483648
+converted
+(should fail)
+
+# Test 15: All zeros
+3
+0000
+4
+length
