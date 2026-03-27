@@ -149,6 +149,38 @@ void test_deleteByValue(void) {
     destroyList(list);
 }
 
+void test_deleteByNode(void) {
+    LinkedList* list = createList();
+    
+    insertAtEnd(list, 10);
+    insertAtEnd(list, 20);
+    insertAtEnd(list, 30);
+    insertAtEnd(list, 40);
+    
+    /* Get reference to second node (20) */
+    Node* node_to_delete = list->head->next;
+    ASSERT_EQ(node_to_delete->data, 20, "Delete by node: correct node reference");
+    
+    int result = deleteByNode(list, node_to_delete);
+    ASSERT_EQ(result, 1, "Delete by node: node deleted successfully");
+    ASSERT_EQ(list->head->data, 10, "Delete by node: head unchanged");
+    ASSERT_EQ(list->head->next->data, 30, "Delete by node: next node updated");
+    ASSERT_EQ(list->size, 3, "Delete by node: size decremented");
+    
+    /* Try to delete head node */
+    Node* head_node = list->head;
+    result = deleteByNode(list, head_node);
+    ASSERT_EQ(result, 1, "Delete by node: head node deleted");
+    ASSERT_EQ(list->head->data, 30, "Delete by node: new head set");
+    ASSERT_EQ(list->size, 2, "Delete by node: size decremented again");
+    
+    /* Try to delete NULL node */
+    result = deleteByNode(list, NULL);
+    ASSERT_EQ(result, 0, "Delete by node: NULL node returns 0");
+    
+    destroyList(list);
+}
+
 /*
  * ============================================================================
  *  SEARCH TESTS
@@ -459,6 +491,7 @@ int main(void) {
     test_deleteAtEnd();
     test_deleteAtPosition();
     test_deleteByValue();
+    test_deleteByNode();
     
     /* Search Tests */
     test_search();

@@ -247,6 +247,37 @@ int deleteByValue(LinkedList* list, int value) {
     return 0;
 }
 
+/**
+ * deleteByNode - Remove a specific node from the list.
+ */
+int deleteByNode(LinkedList* list, Node* node) {
+    if (list == NULL || node == NULL || list->head == NULL) {
+        return 0;
+    }
+    
+    /* If the node to delete is the head */
+    if (list->head == node) {
+        return deleteAtBeginning(list);
+    }
+    
+    /* Search for the node and its predecessor */
+    Node* current = list->head;
+    while (current != NULL && current->next != NULL) {
+        if (current->next == node) {
+            /* Found the node, remove it */
+            Node* temp = current->next;
+            current->next = temp->next;
+            free(temp);
+            list->size--;
+            return 1;
+        }
+        current = current->next;
+    }
+    
+    /* Node not found in list */
+    return 0;
+}
+
 /*
  * ============================================================================
  *  SEARCH AND ACCESS OPERATIONS IMPLEMENTATION

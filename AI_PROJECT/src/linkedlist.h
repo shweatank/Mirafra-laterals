@@ -153,6 +153,20 @@ int deleteAtPosition(LinkedList* list, int position);
  */
 int deleteByValue(LinkedList* list, int value);
 
+/**
+ * deleteByNode - Remove a specific node from the list.
+ * 
+ * Parameters:
+ *   list - Pointer to the LinkedList
+ *   node - Pointer to the specific node to remove
+ * 
+ * Returns: 1 if node found and deleted, 0 if node not found or NULL
+ * 
+ * Note: This function searches for the exact node pointer in the list
+ *       and removes it if found. Useful when you have a direct node reference.
+ */
+int deleteByNode(LinkedList* list, Node* node);
+
 /*
  * ============================================================================
  *  SEARCH AND ACCESS OPERATIONS
