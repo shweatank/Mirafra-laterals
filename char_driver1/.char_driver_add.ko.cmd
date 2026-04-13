@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/char_driver/char_driver_add.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/SHARANG/linux/char_driver/char_driver_add.ko /home/mirafra/SHARANG/linux/char_driver/char_driver_add.o /home/mirafra/SHARANG/linux/char_driver/char_driver_add.mod.o
