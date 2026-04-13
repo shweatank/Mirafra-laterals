@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/Mirafra-laterals/poll/epoll.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/mirafra/SHARANG/Mirafra-laterals/poll/epoll.ko /home/mirafra/SHARANG/Mirafra-laterals/poll/epoll.o /home/mirafra/SHARANG/Mirafra-laterals/poll/epoll.mod.o

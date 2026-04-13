@@ -68,5 +68,5 @@ module_init(gpio_test_init);
 module_exit(gpio_test_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Shashank");
+MODULE_AUTHOR("Sharang");
 MODULE_DESCRIPTION("GPIO27 toggle + GPIO17 read");

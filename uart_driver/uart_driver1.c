@@ -1,72 +1,114 @@
+#include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
-#include <linux/module.h>
 #include <linux/io.h>
 #include <linux/delay.h>
 
-#define GPIO_BASE_PHYS 0xFE200000
-#define GPIO_SIZE      0x100
+#define UART0_BASE_PHYS   0xFE201000
+#define UART0_SIZE        0x90
 
-/* Offsets */
-#define GPFSEL1 0x04
-#define GPFSEL2 0x08
-#define GPSET0  0x1C
-#define GPCLR0  0x28
-#define GPLEV0  0x34
+/* UART Registers */
+#define UART_DR     0x00
+#define UART_FR     0x18
+#define UART_IBRD   0x24
+#define UART_FBRD   0x28
+#define UART_LCRH   0x2C
+#define UART_CR     0x30
+#define UART_IMSC   0x38
+#define UART_ICR    0x44
 
-static void __iomem *gpio_base;
+/* FR bits */
+#define FR_TXFF     (1 << 5)
+#define FR_RXFE     (1 << 4)
 
-static int __init gpio_test_init(void)
+static void __iomem *uart_base;
+
+/* Polling TX */
+static void uart_putc(char c)
 {
-    u32 val;
+    while (readl(uart_base + UART_FR) & FR_TXFF)
+        cpu_relax();
 
-    gpio_base = ioremap(GPIO_BASE_PHYS, GPIO_SIZE);
-    if (!gpio_base) {
-        pr_err("GPIO ioremap failed\n");
+    writel(c, uart_base + UART_DR);
+}
+
+/* Polling RX */
+static char uart_getc(void)
+{
+    while (readl(uart_base + UART_FR) & FR_RXFE)
+        cpu_relax();
+
+    return readl(uart_base + UART_DR) & 0xFF;
+}
+
+static void uart_puts(const char *s)
+{
+    while (*s)
+        uart_putc(*s++);
+}
+
+static int __init uart_init(void)
+{
+    pr_info("UART ioremap driver init\n");
+
+    uart_base = ioremap(UART0_BASE_PHYS, UART0_SIZE);
+    if (!uart_base) {
+        pr_err("UART ioremap failed\n");
         return -ENOMEM;
     }
 
-    pr_info("GPIO mapped\n");
+    /* Disable UART */
+    writel(0x0, uart_base + UART_CR);
 
+    /* Clear interrupts */
+    writel(0x7FF, uart_base + UART_ICR);
 
-    val = readl(gpio_base + GPFSEL2);
-    val &= ~(7 << 21);     // clear FSEL27
-    val |=  (1 << 21);     // output
-    writel(val, gpio_base + GPFSEL2);
+    /*
+     * Baud rate = 115200
+     * UARTCLK = 48MHz
+     * Divider = 48,000,000 / (16 * 115200) = 26.0416
+     */
+    writel(26, uart_base + UART_IBRD);
+    writel(3,  uart_base + UART_FBRD);
 
+    /* 8N1, FIFO enabled */
+    writel((1 << 4) | (1 << 5) | (1 << 6),
+           uart_base + UART_LCRH);
 
-    val = readl(gpio_base + GPFSEL1);
-    val &= ~(7 << 21);     // clear → input
-    writel(val, gpio_base + GPFSEL1);
+    /* Enable UART, TX, RX */
+    writel((1 << 0) | (1 << 8) | (1 << 9),
+           uart_base + UART_CR);
 
+    uart_puts("\n\rUART ioremap driver active\r\n");
 
-    for(int i = 0; i < 10; i++)
+    /* Echo test */
+    uart_puts("Type a character...\r\n");
+
     {
-        writel(1 << 27, gpio_base + GPSET0);
-        msleep(500);
-
-        val = readl(gpio_base + GPLEV0);
-        pr_info("GPIO17 state = %d\n", !!(val & (1 << 17)));
-
-        writel(1 << 27, gpio_base + GPCLR0);
-        msleep(500);
-
-        val = readl(gpio_base + GPLEV0);
-        pr_info("GPIO17 state = %d\n", !!(val & (1 << 17)));
+        char c = uart_getc();
+        uart_puts("You typed: ");
+        uart_putc(c);
+        uart_puts("\r\n");
     }
 
     return 0;
 }
 
-static void __exit gpio_test_exit(void)
+static void __exit uart_exit(void)
 {
-    iounmap(gpio_base);
-    pr_info("GPIO module removed\n");
+    uart_puts("UART driver exit\r\n");
+
+    writel(0x0, uart_base + UART_CR);
+
+    if (uart_base)
+        iounmap(uart_base);
+
+    pr_info("UART ioremap driver unloaded\n");
 }
 
-module_init(gpio_test_init);
-module_exit(gpio_test_exit);
+module_init(uart_init);
+module_exit(uart_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SHARANG");
-MODULE_DESCRIPTION("GPIO27 toggle + GPIO17 read");
+MODULE_DESCRIPTION("BCM2711 UART driver using ioremap only");

@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/linux/usb_driver/usb_driver1.mod := printf '%s\n'   usb_driver1.o | awk '!x[$$0]++ { print("/home/mirafra/SHARANG/linux/usb_driver/"$$0) }' > /home/mirafra/SHARANG/linux/usb_driver/usb_driver1.mod

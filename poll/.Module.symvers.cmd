@@ -1,0 +1,1 @@
+savedcmd_/home/mirafra/SHARANG/Mirafra-laterals/poll/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/mirafra/SHARANG/Mirafra-laterals/poll/Module.symvers -T /home/mirafra/SHARANG/Mirafra-laterals/poll/modules.order -i Module.symvers -e 
